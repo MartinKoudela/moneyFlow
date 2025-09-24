@@ -13,7 +13,7 @@ struct HomeView: View {
             Image(systemName: "dollarsign")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("This is HomePage")
+            Text("This is it")
         }
         .padding()
     }

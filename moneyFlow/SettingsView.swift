@@ -11,7 +11,8 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             
-            Text("Say hi to settings")
+            Label("Say hi to settings", systemImage: "smiley")
+                .font(.title)
         }
     }
 }

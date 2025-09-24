@@ -11,7 +11,10 @@ struct LimitsView: View {
     var body: some View {
         VStack {
            
-            Text("Limits here")
+            Text("Did you think that there would be more that this?")
+                .font(.headline)
+            Text("Well, You can try settings.")
+
         }
     }
 }
