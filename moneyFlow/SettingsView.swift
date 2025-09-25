@@ -8,24 +8,29 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var colorScheme: ColorScheme = .light
-
+    @State private var changeTheme: Bool = false
+    @Environment(\.colorScheme) private var scheme
+    @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
     var body: some View {
-            NavigationView {
-                VStack {
-                    Text("Themes")
-                    Button("Toggle Scheme") {
-                        self.colorScheme = (self.colorScheme == .light) ? .dark : .light
+        NavigationStack {
+            List {
+                Section("Appearance") {
+                    Button("Change theme") {
+                        changeTheme.toggle()
                     }
-                    .buttonStyle(.borderedProminent)
                 }
             }
-            .preferredColorScheme(colorScheme)
         }
+        .preferredColorScheme(userTheme.colorScheme)
+        .sheet(isPresented: $changeTheme, content: {
+            ThemeChangeView(scheme: scheme)
+                .presentationDetents([.height(410)])
+                .presentationBackground(.clear)
+        })
     }
+}
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         SettingsView()
-    }
+
 }

@@ -11,16 +11,12 @@ struct LimitsView: View {
     var body: some View {
         VStack {
            
-            Text("Did you think that there would be more that this?")
-                .font(.headline)
-            Text("Well, You can try settings.")
+            Text("Here will be limits")
 
         }
     }
 }
 
-struct LimitsView_Previews: PreviewProvider {
-    static var previews: some View {
-        LimitsView()
-    }
+#Preview {
+    LimitsView()
 }

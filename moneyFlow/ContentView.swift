@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showOnboarding:Bool = true
-    
+
     var body: some View {
         TabView {
             Group {
@@ -49,10 +49,6 @@ struct ContentView: View {
     }
 }
         
-        
-        struct ContentView_Previews: PreviewProvider {
-            static var previews: some View {
-                ContentView()
-            }
-    }
-
+#Preview {
+    ContentView()
+}
