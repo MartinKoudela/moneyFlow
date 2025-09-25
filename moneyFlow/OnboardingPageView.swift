@@ -22,7 +22,7 @@ struct OnboardingPageView: View {
             Image(systemName: imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 250)
+                .frame(height: 200)
                 .foregroundColor(imageColor)
             
             Text(title)

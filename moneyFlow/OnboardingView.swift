@@ -9,46 +9,56 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Binding var showOnboarding: Bool
-    @State private var selection = 0
+    @State private var selection: Int = 0
     
     var body: some View {
         TabView(selection: $selection) {
             OnboardingPageView(
-                imageName: "dollarsign",
-                title: "Expenses in sight",
-                description: "Watch your expenses in real time and see how much you can save to achieve your financial goals.",
-                imageColor: .green,
+                imageName: "hand.wave.fill",
+                title: "Welcome",
+                description: "Thank you for using my app!",
+                imageColor: .indigo,
                 showDoneButton: false,
                 nextAction: goNext
             )
             .tag(0)
             
             OnboardingPageView(
-                imageName: "slider.horizontal.3",
-                title: "Set your own limits",
-                description: "Set your limits for daily, weekly and monthly expenses.",
-                imageColor: .blue,
+                imageName: "dollarsign",
+                title: "Track your expences",
+                description: "Watch your expenses in real time and see how much you can save to achieve your financial goals.",
+                imageColor: .green,
                 showDoneButton: false,
                 nextAction: goNext
             )
             .tag(1)
             
             OnboardingPageView(
+                imageName: "slider.horizontal.3",
+                title: "Set your own limits",
+                description: "Set your limits for daily, weekly and monthly expenses.",
+                imageColor: .teal,
+                showDoneButton: false,
+                nextAction: goNext
+            )
+            .tag(2)
+            
+            OnboardingPageView(
                 imageName: "gear",
                 title: "Explore settings",
-                description: "Sing",
+                description: "Set the currency you use. Set the theme you love. And much more.",
                 imageColor: .gray,
                 showDoneButton: true,
                 nextAction: finishOnboarding
             )
-            .tag(2)
+            .tag(3)
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
     
-    // MARK: - Actions
     func goNext() {
-        if selection < 2 {
+        if selection < 3 {
             selection += 1
         }
     }

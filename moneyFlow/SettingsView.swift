@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var colorScheme: ColorScheme = .light
+
     var body: some View {
-        VStack {
-            
-            Label("Say hi to settings", systemImage: "smiley")
-                .font(.title)
+            NavigationView {
+                VStack {
+                    Text("Themes")
+                    Button("Toggle Scheme") {
+                        self.colorScheme = (self.colorScheme == .light) ? .dark : .light
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            }
+            .preferredColorScheme(colorScheme)
         }
     }
-}
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {

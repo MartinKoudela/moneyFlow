@@ -8,26 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showOnboarding:Bool = true
+    
     var body: some View {
         TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
+            Group {
+                NavigationStack {
+                    HomeView()
+                        .navigationTitle("Home")
                 }
-            LimitsView()
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                        .toolbarBackground(.yellow, for: .navigationBar)
+                        .toolbarBackground(.visible, for: .navigationBar)
+                }
+                
+                NavigationStack {
+                    LimitsView()
+                        .navigationTitle("Limits")
+                }
                 .tabItem {
                     Label("Limits", systemImage: "slider.horizontal.3")
                 }
-            SettingsView()
+                
+                NavigationStack {
+                    SettingsView()
+                        .navigationTitle("Settings")
+                }
+                
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+                
+            }
         }
+            .fullScreenCover(isPresented: $showOnboarding, content: {
+                OnboardingView(showOnboarding: $showOnboarding)
+            })
     }
 }
+        
+        
+        struct ContentView_Previews: PreviewProvider {
+            static var previews: some View {
+                ContentView()
+            }
+    }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
