@@ -99,7 +99,6 @@ enum Theme: String, CaseIterable {
             return .sun
         case .dark:
             return .moon
-            
         }
     }
     var colorScheme: ColorScheme? {
