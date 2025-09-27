@@ -18,19 +18,19 @@ struct SettingsView: View {
                     Button("Change theme") {
                         changeTheme.toggle()
                     }
+
                 }
             }
+
         }
         .preferredColorScheme(userTheme.colorScheme)
         .sheet(isPresented: $changeTheme, content: {
             ThemeChangeView(scheme: scheme)
-                .presentationDetents([.height(410)])
-                .presentationBackground(.clear)
+                .presentationDetents([.height(420)])
         })
     }
 }
 
 #Preview {
         SettingsView()
-
 }

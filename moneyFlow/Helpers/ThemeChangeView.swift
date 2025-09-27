@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ThemeChangeView: View {
-    var scheme: ColorScheme 
+    var scheme: ColorScheme
     @AppStorage("userTheme") private var userTheme: Theme = .systemDefault
     /// SLIDER EFFECT
     @Namespace private var animation
-    /// VIEW PROPERTIES
     @State private var circleOffset: CGSize
     init(scheme: ColorScheme) {
         self.scheme = scheme
@@ -65,9 +64,9 @@ struct ThemeChangeView: View {
                 .padding(.top, 20)
             }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .frame(height: 410)
+        .frame(width: 500, height: 700)
         .background(.themeBG)
-        .clipShape(.rect(cornerRadius: 30))
+        .clipShape(.rect(cornerRadius: 400))
         .padding(.horizontal, 15)
         .environment(\.colorScheme, scheme)
         .onChange(of: scheme, initial: false) { _, newValue in
@@ -99,6 +98,7 @@ enum Theme: String, CaseIterable {
             return .sun
         case .dark:
             return .moon
+            
         }
     }
     var colorScheme: ColorScheme? {

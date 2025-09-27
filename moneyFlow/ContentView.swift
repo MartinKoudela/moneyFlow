@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
-    
+
     @State private var showOnboarding:Bool = true
 
     var body: some View {
@@ -23,7 +22,7 @@ struct ContentView: View {
                         .toolbarBackground(.yellow, for: .navigationBar)
                         .toolbarBackground(.visible, for: .navigationBar)
                 }
-                
+
                 NavigationStack {
                     LimitsView()
                         .navigationTitle("Limits")
@@ -31,16 +30,16 @@ struct ContentView: View {
                 .tabItem {
                     Label("Limits", systemImage: "slider.horizontal.3")
                 }
-                
+
                 NavigationStack {
                     SettingsView()
                         .navigationTitle("Settings")
                 }
-                
+
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-                
+
             }
         }
             .fullScreenCover(isPresented: $showOnboarding, content: {
@@ -48,7 +47,7 @@ struct ContentView: View {
             })
     }
 }
-        
+
 #Preview {
     ContentView()
 }
