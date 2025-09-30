@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct SettingsView: View {
     @State private var changeTheme: Bool = false
     @Environment(\.colorScheme) private var scheme
@@ -18,10 +17,8 @@ struct SettingsView: View {
                     Button("Change theme") {
                         changeTheme.toggle()
                     }
-
                 }
             }
-
         }
         .preferredColorScheme(userTheme.colorScheme)
         .sheet(isPresented: $changeTheme, content: {
@@ -30,7 +27,6 @@ struct SettingsView: View {
         })
     }
 }
-
 #Preview {
         SettingsView()
 }
