@@ -20,11 +20,13 @@ struct SettingsView: View {
                 }
             }
         }
-        .preferredColorScheme(userTheme.colorScheme)
+        .preferredColorScheme(userTheme.effectiveScheme(scheme))
         .sheet(isPresented: $changeTheme, content: {
             ThemeChangeView(scheme: scheme)
-                .presentationDetents([.height(420)])
+                .presentationDetents([.height(410)])
+                .presentationBackground(.clear)
         })
+        
     }
 }
 #Preview {

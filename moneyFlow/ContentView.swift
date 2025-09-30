@@ -47,8 +47,6 @@ struct ContentView: View {
                 OnboardingView(showOnboarding: $showOnboarding)
             })
         }
-        .preferredColorScheme(userTheme.colorScheme)
-
     }
 }
 

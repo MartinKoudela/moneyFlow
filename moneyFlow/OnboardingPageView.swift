@@ -57,3 +57,4 @@ struct OnboardingPageView_Previews: PreviewProvider {
         OnboardingView(showOnboarding: .constant (true))
     }
 }
+// TODO: Make this page dissapear after first view
