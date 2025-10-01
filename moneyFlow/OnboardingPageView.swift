@@ -11,12 +11,9 @@ struct OnboardingPageView: View {
     let title: String
     let description: String
     let imageColor: Color
-
-    
     let showDoneButton: Bool
-    
+    @State private var selection: Int = 0
     var nextAction: () -> Void
-    
     var body: some View {
         VStack(spacing: 20) {
             Image(systemName: imageName)

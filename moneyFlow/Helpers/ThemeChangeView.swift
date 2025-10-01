@@ -64,22 +64,20 @@ struct ThemeChangeView: View {
                 .padding(.top, 20)
             }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .frame(height: 410)
+        .frame(width:700, height:500)
         .background(.themeBG)
         .clipShape(.rect(cornerRadius: 30))
         .padding(.horizontal, 15)
-        .preferredColorScheme(userTheme.effectiveScheme(scheme))      /// new
+        .preferredColorScheme(userTheme.colorScheme)
         .environment(\.colorScheme, scheme)
         .onChange(of: scheme, initial: false) { _, newValue in
             let isDark = newValue == .dark
             withAnimation(.bouncy) {
                 circleOffset = CGSize(width: isDark ? 30 : 150, height: isDark ? -25 : -150)
             }
-            
         }
     }
 }
-
 
 #Preview {
     SettingsView()
@@ -90,7 +88,6 @@ enum Theme: String, CaseIterable {
     case systemDefault = "Default"
     case light = "Light"
     case dark = "Dark"
-    
     func color(_ scheme: ColorScheme) -> Color {
         switch self {
         case .systemDefault:
@@ -106,18 +103,6 @@ enum Theme: String, CaseIterable {
         switch self {
         case .systemDefault:
             return nil
-        case .light:
-            return .light
-        case .dark:
-            return .dark
-        }
-    }
-    
-    /// new func by ChatGPT
-    func effectiveScheme(_ system: ColorScheme) -> ColorScheme {
-        switch self {
-        case .systemDefault:  // Cannot use nil (New SwiftUI ver. won't change immediately)
-            return system
         case .light:
             return .light
         case .dark:

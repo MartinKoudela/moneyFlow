@@ -20,10 +20,10 @@ struct SettingsView: View {
                 }
             }
         }
-        .preferredColorScheme(userTheme.effectiveScheme(scheme))
+        .preferredColorScheme(userTheme.colorScheme)
         .sheet(isPresented: $changeTheme, content: {
             ThemeChangeView(scheme: scheme)
-                .presentationDetents([.height(410)])
+                .presentationDetents([.height(420)])
                 .presentationBackground(.clear)
         })
         

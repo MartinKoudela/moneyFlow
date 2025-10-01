@@ -10,7 +10,6 @@ import SwiftUI
 struct OnboardingView: View {
     @Binding var showOnboarding: Bool
     @State private var selection: Int = 0
-    
     var body: some View {
         TabView(selection: $selection) {
             OnboardingPageView(
@@ -55,6 +54,9 @@ struct OnboardingView: View {
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
         .indexViewStyle(.page(backgroundDisplayMode: .always))
+        .animation(.easeInOut, value: selection)
+        .transition(.slide)
+
     }
     
     func goNext() {
