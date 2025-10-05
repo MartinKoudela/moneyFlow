@@ -1,1 +1,2 @@
-This app will be for personal use.
+## MoneyFlow
+- Learning MacOS \ IOS app development.
